@@ -1,0 +1,78 @@
+.sum {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.container {
+  display: flex;
+  width: 290px;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #f8f8f8;
+  border-radius: 20px;
+  padding: 35px 40px;
+  margin: 20px 0;
+}
+
+.listItem {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+.inputName {
+  width: 160px;
+  overflow-wrap: break-word;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: end;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.whiteBtn {
+  background-color: #fff;
+  border-radius: 20px;
+  color: #02ba26;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 10px;
+  border: 1px solid #02ba26;
+  padding: 5px 10px;
+  transition: all 0.5s;
+  margin-left: 5px;
+}
+
+.inputField {
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.inputField:focus {
+  border: 2px solid #02ba26;
+  outline: none;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 370px;
+  }
+}
+
+@media screen and (min-width: 1020px) {
+  .whiteBtn:hover {
+    color: #fff;
+    background-color: #02ba26;
+  }
+}
