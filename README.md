@@ -8,7 +8,7 @@ This website is a home budget calculator that allows users to calculate their in
 https://frabjous-monstera-500d03.netlify.app/
 
 
-### Technologies Used
+## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript, React.js
 - **Hosting**: Netlify
