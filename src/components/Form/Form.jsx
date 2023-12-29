@@ -14,7 +14,7 @@ const Form = ({ formType, data, setData }) => {
       : event.target.expenseAmount.value;
 
     const newData = {
-      id: getRandomId,
+      id: getRandomId(),
       name: name,
       value: value,
     };
