@@ -16,7 +16,7 @@ const List = ({ data, onDelete, onEdit, setData }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setEditedItem({ ...editedItem, [name]: value });
+    setEditedItem((prevState) => ({ ...prevState, [name]: value }));
   };
 
   return (

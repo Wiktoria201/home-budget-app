@@ -19,9 +19,15 @@ const Form = ({ formType, data, setData }) => {
       value: value,
     };
     if (isIncomesForm) {
-      setData({ ...data, incomes: [...data.incomes, newData] });
+      setData((prevState) => ({
+        ...prevState,
+        incomes: [...data.incomes, newData],
+      }));
     } else {
-      setData({ ...data, expenses: [...data.expenses, newData] });
+      setData((prevState) => ({
+        ...prevState,
+        expenses: [...data.expenses, newData],
+      }));
     }
 
     event.target.reset();
