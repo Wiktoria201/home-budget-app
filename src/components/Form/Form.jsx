@@ -1,3 +1,4 @@
+import { getRandomId } from "../../utils/getRandomId";
 import styles from "./Form.module.css";
 
 const Form = ({ formType, data, setData }) => {
@@ -13,7 +14,7 @@ const Form = ({ formType, data, setData }) => {
       : event.target.expenseAmount.value;
 
     const newData = {
-      id: Math.random().toString(36).substring(2, 9),
+      id: getRandomId,
       name: name,
       value: value,
     };

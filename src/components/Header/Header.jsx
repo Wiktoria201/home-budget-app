@@ -4,7 +4,7 @@ const getHeadingText = (sum) => {
   if (sum > 0) {
     return (
       <h1>
-        Your current balance is <span className={styles.greenSum}>${sum}</span>.
+        Your current balance is <span className={styles.greenSum}>${sum}</span>{" "}
         Good job!
       </h1>
     );

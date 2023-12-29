@@ -3,6 +3,7 @@ import Form from "./components/Form/Form";
 import "./App.css";
 import { useState } from "react";
 import List from "./components/List/List";
+import { getTotalSum } from "./utils/getTotalSum";
 
 function App() {
   const [data, setData] = useState({ incomes: [], expenses: [] });
@@ -11,44 +12,41 @@ function App() {
     setData(newData);
   };
 
-  // const handleEditItem = (id) => {
-  //   const selectedIncome = data.incomes.find((income) => income.id === id);
-  //   const selectedExpense = data.expenses.find((expense) => expense.id === id);
+  const handleEditItem = (id, newData, type) => {
+    if (type === "INCOMES") {
+      const updatedIncomes = data.incomes.map((income) =>
+        income.id === id ? newData : income
+      );
+      setData((prevState) => ({
+        ...prevState,
+        incomes: updatedIncomes,
+      }));
+      return;
+    }
 
-  //   if (selectedIncome) {
-  //     console.log("Found in incomes:");
-  //     console.log(selectedIncome);
-  //   } else if (selectedExpense) {
-  //     console.log("Found in expenses:");
-  //     console.log(selectedExpense);
-  //   } else {
-  //     console.log("Item not found.");
-  //   }
-  // };
-  const handleEditItem = (id, newData) => {
-    const updatedIncomes = data.incomes.map((income) =>
-      income.id === id ? newData : income
-    );
-    const updatedExpenses = data.expenses.map((expense) =>
-      expense.id === id ? newData : expense
-    );
-    setData({ ...data, incomes: updatedIncomes, expenses: updatedExpenses });
+    if (type === "EXPENSES") {
+      const updatedExpenses = data.expenses.map((expense) =>
+        expense.id === id ? newData : expense
+      );
+      setData((prevState) => ({
+        ...prevState,
+        expenses: updatedExpenses,
+      }));
+    }
   };
 
   const handleDeleteItem = (id) => {
     const updatedIncomes = data.incomes.filter((item) => item.id !== id);
     const updatedExpenses = data.expenses.filter((item) => item.id !== id);
-    setData({ ...data, incomes: updatedIncomes, expenses: updatedExpenses });
+    setData((prevState) => ({
+      ...prevState,
+      incomes: updatedIncomes,
+      expenses: updatedExpenses,
+    }));
   };
 
-  const incomesSum = data.incomes.reduce(
-    (acc, item) => acc + Number(item.value),
-    0
-  );
-  const expensesSum = data.expenses.reduce(
-    (acc, item) => acc + Number(item.value),
-    0
-  );
+  const incomesSum = getTotalSum(data.incomes);
+  const expensesSum = getTotalSum(data.expenses);
 
   const totalSum = incomesSum - expensesSum;
 
@@ -68,7 +66,7 @@ function App() {
               data={data.incomes}
               onDelete={handleDeleteItem}
               setData={setData}
-              onEdit={handleEditItem}
+              onEdit={(id, newData) => handleEditItem(id, newData, "INCOMES")}
             />
           )}
         </div>
@@ -84,7 +82,7 @@ function App() {
               data={data.expenses}
               onDelete={handleDeleteItem}
               setData={setData}
-              onEdit={handleEditItem}
+              onEdit={(id, newData) => handleEditItem(id, newData, "EXPENSES")}
             />
           )}
         </div>
