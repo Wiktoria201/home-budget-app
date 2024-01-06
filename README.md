@@ -12,3 +12,5 @@ https://frabjous-monstera-500d03.netlify.app/
 
 - **Frontend**: HTML, CSS, JavaScript, React.js
 - **Hosting**: Netlify
+
+I also incorporated basic tests to ensure the reliability and functionality of the application. They can be found in utils folder. 
