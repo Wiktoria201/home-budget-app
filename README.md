@@ -5,7 +5,7 @@ This website is a home budget calculator that allows users to calculate their in
 
 ### Here is a link to the website:
 
-https://frabjous-monstera-500d03.netlify.app/
+https://home-budget-calculator.netlify.app/
 
 
 ### Technologies Used
